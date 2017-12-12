@@ -26,12 +26,12 @@ public class Chicken {
 	    action = in.readLine();
             } catch ( IOException e ) { }
 	System.out.println("Aight you " + action + ".");
-		resignation += Math.random() * 20;
+		resignation += Math.random() * 40;
 	System.out.println("Chicken is now " + resignation + "% resigned \n");
 	if(resignation >= 100) chickenStatus = "resigned";
         else {
 		System.out.println("shit, chicken bouta " + action + " you!");
-		resignation -= Math.random() * 20;
+		resignation -= Math.random() * 14;
 	System.out.println("Chicken is now " + resignation + "% resigned \n");
 	}	
 	}
