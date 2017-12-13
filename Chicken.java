@@ -22,6 +22,8 @@ public class Chicken {
     public  void newGame() {
 	System.out.println("Chicken appeared.");
 	System.out.println("~~~~~~~~~~~~~~~~~");
+
+	boolean canPappu = false;
 	while(chickenStatus != "resigned") {
 
 	String s = "";
@@ -46,36 +48,44 @@ public class Chicken {
 	try {
 	    action = in.readLine();
             } catch ( IOException e ) { }
-	System.out.println("Aight you " + action + ".");
+	System.out.println("\nAight you " + action + ".");
 		resignation += Math.random() * 40;
 	System.out.println("Chicken is now " + resignation + "% resigned \n");
-	if(resignation >= 100) chickenStatus = "resigned";
-        
-		
 	
-      }
+    }
 
 	if (attack == 1) {
-		System.out.println("Chicken gets [[ GATES SHOCKED ]]");
-                resignation += Math.random() * 15;
-		}
+		System.out.println("\nChicken gets [[ GATES SHOCKED ]]");
+        resignation += Math.random() * 15;
+	}
+
 	if (attack == 2) {
-				System.out.println("Chicken gets [[ PAPPU BLASTED ]]");
-resignation += Math.random() * 40 - 40;
-}
+		if (canPappu) {
+		System.out.println("\nChicken gets [[ PAPPU BLASTED ]]");
+		resignation += Math.random() * 40;
+		canPappu = false;
+	    }
+	    else {
+	    System.out.println("\n[[ PAPPU BLAST ]] is attempted, but you are too weak! \nYou must rest first...");
+	    }
+	}
+
 	if (attack == 3) {
-			System.out.println("You use [[ SON REST ]]\n You do nothing");
-}
-			
-			System.out.println("Chicken is now " + resignation + "% resigned \n");
+			System.out.println("\nYou use [[ SON REST ]]\n Your power grows...");
+			canPappu = true;
+	}
 
 
-
+	System.out.println("\nChicken is now " + resignation + "% resigned \n");
 
 	System.out.println("shit, chicken bouta " + action + " you!");
-		resignation -= Math.random() * 14;
-	System.out.println("Chicken is now " + resignation + "% resigned \n");
+	resignation -= Math.random() * 14;
+
+	System.out.println("\nChicken is now " + resignation + "% resigned \n");
+	if(resignation >= 100) chickenStatus = "resigned";
+	
 	}
+	
 	System.out.println("chicken resigned");
     }
 
